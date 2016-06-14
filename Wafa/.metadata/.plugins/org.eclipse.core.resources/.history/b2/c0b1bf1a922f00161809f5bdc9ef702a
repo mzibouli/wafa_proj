@@ -1,0 +1,120 @@
+package com.fixproApp.model;
+
+import static javax.persistence.GenerationType.IDENTITY;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Piece implements java.io.Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1752540567393699700L;
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idPiece", unique = true, nullable = false, length = 45)
+	private Integer idPiece;
+	private String serialNumber;
+	private String description;
+	private int qte;
+	private Double prixDetail;
+	private Double prix;
+	private Double total;
+	private String numFactFour;
+	public Integer getIdPiece() {
+		return idPiece;
+	}
+	public void setIdPiece(Integer idPiece) {
+		this.idPiece = idPiece;
+	}
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+
+	public void setSerialNumber(String serialNumber) {
+		this.serialNumber = serialNumber;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getQte() {
+		return qte;
+	}
+
+	public void setQte(int qte) {
+		this.qte = qte;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public Double getPrix() {
+		return prix;
+	}
+
+	public void setPrix(Double prix) {
+		this.prix = prix;
+	}
+
+	public Double getPrixDetail() {
+		return prixDetail;
+	}
+	public void setPrixDetail(Double prixDetail) {
+		this.prixDetail = prixDetail;
+	}
+	
+	public String getNumFactFour() {
+		return numFactFour;
+	}
+	public void setNumFactFour(String numFactFour) {
+		this.numFactFour = numFactFour;
+	}
+	
+	
+	public Double getTotal() {
+		return total;
+	}
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	public Piece(){
+		
+	}
+
+	public Piece(Integer idPiece, String serialNumber, String description, int qte, Double prixDetail, Double prix, String numFactFour, Double total) {
+		super();
+		this.idPiece = idPiece;
+		this.serialNumber = serialNumber;
+		this.description = description;
+		this.qte = qte;
+		this.prixDetail = prixDetail;
+		this.prix = prix;
+		this.numFactFour = numFactFour;
+		this.total = total;
+	}
+
+
+
+	public Piece(String serialNumber, String description, int qte, Double prixDetail, Double prix, String numFactFour, Double total) {
+		super();
+		this.serialNumber = serialNumber;
+		this.description = description;
+		this.qte = qte;
+		this.prixDetail = prixDetail;
+		this.prix = prix;
+		this.numFactFour = numFactFour;
+		this.total = total;
+	}
+	
+}

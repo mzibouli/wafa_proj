@@ -1,0 +1,81 @@
+package com.gestionStock.repositoryServiceImpl;
+
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Service;
+
+import com.gestionStock.model.Produit;
+import com.gestionStock.repository.ProduitRepository;
+
+@Service
+@Configurable
+@ComponentScan("com.gestionStock.repositoryServiceImpl")
+public class ProduitRepositoryServiceImpl implements ProduitRepository {
+
+	@Override
+	public long count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void delete(Long arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Produit arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void delete(Iterable<? extends Produit> arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean exists(Long arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Iterable<Produit> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Iterable<Produit> findAll(Iterable<Long> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Produit findOne(Long arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Produit> S save(S arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <S extends Produit> Iterable<S> save(Iterable<S> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

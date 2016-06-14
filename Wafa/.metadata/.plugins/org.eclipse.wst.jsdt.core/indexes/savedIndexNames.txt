@@ -1,0 +1,9 @@
+INDEX VERSION 1.3+C:\Users\user\Documents\sts-bundle\sts-3.7.1.RELEASE\workspace\Wafa\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2639117432.index
+4024949964.index
+2834144578.index
+1330538445.index
+3654110140.index
+1330538445.index
+1032324853.index
+333816191.index

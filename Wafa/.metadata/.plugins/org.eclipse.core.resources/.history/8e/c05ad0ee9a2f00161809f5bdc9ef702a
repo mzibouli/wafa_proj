@@ -1,0 +1,7 @@
+package com.gestionStock.controllers;
+
+@RestController
+@RequestMapping("/fournisseur")
+public class AdresseController {
+
+}

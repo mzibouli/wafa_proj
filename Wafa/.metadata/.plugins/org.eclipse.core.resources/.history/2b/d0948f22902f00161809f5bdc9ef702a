@@ -1,0 +1,5 @@
+package com.gestionStock.model;
+
+public class Technicien {
+
+}

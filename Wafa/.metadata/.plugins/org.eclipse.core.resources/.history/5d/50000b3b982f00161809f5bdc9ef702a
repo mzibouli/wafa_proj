@@ -1,0 +1,5 @@
+package com.gestionStock.repositoryServiceImpl;
+
+public class ProduitRepositoryServiceImpl {
+
+}

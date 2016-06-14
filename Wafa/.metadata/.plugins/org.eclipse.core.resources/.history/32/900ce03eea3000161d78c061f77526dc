@@ -1,0 +1,24 @@
+package com.gestionStock.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.gestionStock.model.Technicien;
+import com.gestionStock.repositoryServiceImpl.TechnicienRepositoryServiceImpl;
+
+@RestController
+@RequestMapping("/technicien")
+public class TechnicienController {
+	
+public List<Technicien> getAllTechniciens(){
+	
+	return 
+	
+}
+	@Autowired
+	TechnicienRepositoryServiceImpl technicienRepositoryServiceImpl;
+}
+
