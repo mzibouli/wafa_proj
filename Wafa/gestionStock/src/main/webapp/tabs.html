@@ -1,0 +1,57 @@
+
+<div id="indexTabs" class="tab-content">
+	<!-- Espace Produit -->
+	<div ng-controller="ProduitController" id="ajouterProduit"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Ajouter un nouveau Produit</strong>
+		</h2>
+		<hr>
+		<div ng-include="'ajouterProduitForm.html'"></div>
+	</div>
+
+	<div ng-controller="ProduitController" id="trouverProduit"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Trouver Produit</strong>
+		</h2>
+		<hr>
+		<div ng-include="'trouverProduit.html'"></div>
+	</div>
+
+	<!-- Espace Clients -->
+	<div ng-controller="ClientController" id="ajouterClient"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Ajouter un nouveau Client</strong>
+		</h2>
+		<hr>
+		<div ng-include="'ajouterClientForm.html'"></div>
+	</div>
+	<div ng-controller="ClientController" id="trouverClient"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Trouver Client</strong>
+		</h2>
+		<hr>
+		<div ng-include="'trouverClient.html'"></div>
+	</div>
+	<!-- Espace Fournisseurs -->
+	<div ng-controller="FournisseurController" id="ajouterFournisseur"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Ajouter un nouveau Fournisseur</strong>
+		</h2>
+		<hr>
+		<div ng-include="'ajouterFournisseurForm.html'"></div>
+	</div>
+
+	<div ng-controller="FournisseurController" id="trouverFournisseur"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Trouver Fournisseur</strong>
+		</h2>
+		<hr>
+		<div ng-include="'trouverFournisseur.html'"></div>
+	</div>
+</div>
