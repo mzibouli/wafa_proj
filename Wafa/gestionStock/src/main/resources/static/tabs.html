@@ -13,13 +13,21 @@
 	<div ng-controller="ProduitController" id="trouverProduit"
 		class="tab-pane fade">
 		<h2 align="center">
-			<strong>Trouver Produit</strong>
+			<strong>Trouver Produit </strong>
 		</h2>
 		<hr>
 		<div ng-include="'trouverProduit.html'"></div>
 	</div>
 
 	<!-- Espace Clients -->
+	<div ng-controller="ClientController" id="TousLesClients"
+		class="tab-pane fade">
+		<h2 align="center">
+			<strong>Tous les clients</strong>
+		</h2>
+		<hr>
+		<div ng-include="'tousLesClients.html'"></div>
+	</div>
 	<div ng-controller="ClientController" id="ajouterClient"
 		class="tab-pane fade">
 		<h2 align="center">
