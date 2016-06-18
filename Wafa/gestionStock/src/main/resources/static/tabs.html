@@ -1,6 +1,13 @@
-
 <div id="indexTabs" class="tab-content">
 	<!-- Espace Produit -->
+	<div id="tousLesProduits" ng-controller="MainController"
+		ng-init="getTousLesProduits()" class="tab-pane fade in active">
+		<h2 align="center">
+			<strong>Tous les Produits </strong>
+		</h2>
+		<hr>
+		<div ng-include="'tousLesProduits.html'"></div>
+	</div>
 	<div ng-controller="ProduitController" id="ajouterProduit"
 		class="tab-pane fade">
 		<h2 align="center">

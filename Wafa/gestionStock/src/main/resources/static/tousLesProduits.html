@@ -1,2 +1,13 @@
+<!-- 
 afficher tous les produits ici : utiliser datatable
 https://datatables.net/examples/api/row_details.html
+ -->
+<h1>Produit: <br> </h1>
+ {{produits }} 
+<table>
+	<th>description</th>
+	<tr ng-repeat="produit in produits">
+		<td>{{produit.description}}</td>
+	</tr>
+</table>
+

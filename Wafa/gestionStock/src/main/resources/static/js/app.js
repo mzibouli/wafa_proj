@@ -1,10 +1,11 @@
 var app = angular.module("gestionStock", []);
 
 app.controller("MainController", function($scope, $http) {
-	$scope.getAllProduits = function() {
+	$scope.produits = null;
+	$scope.getTousLesProduits = function() {
+
 		$http.get('produit/tousLesProduits').success(function(data) {
 			$scope.produits = data;
-			alert($scope.produits);
 		});
 	}
 });
