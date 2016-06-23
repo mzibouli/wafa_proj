@@ -1,13 +1,25 @@
-<!-- 
-afficher tous les produits ici : utiliser datatable
-https://datatables.net/examples/api/row_details.html
- -->
-<h1>Produit: <br> </h1>
- {{produits }} 
-<table>
-	<th>description</th>
-	<tr ng-repeat="produit in produits">
-		<td>{{produit.description}}</td>
-	</tr>
-</table>
+<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.8.2/css/jquery.dataTables.css">
+ 
+<div >
+    <div ng-controller="Ctrl">   
+    
+        <table my-table="overrideOptions"
+            aa-data="sampleProductCategories"
+        ao-column-defs="columnDefs"
+        fn-row-callback="myCallback"
+            >
+            <thead>
+            <tr>
+                <th style="width:150px">Date Achat</th>
+                <th style="width:250px">Description</th>
+                <th style="width:100px">Fabriquant</th>
+                <th style="width:100px">Serial Number</th>
 
+            </tr>
+            </thead>
+        </table>
+
+       {{message}}
+    </div>
+</div>
