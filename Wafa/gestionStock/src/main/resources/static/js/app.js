@@ -1,137 +1,121 @@
-var dialogApp = angular.module('tableExample', []);
+var app = angular.module('gestionStock', []);
 
-    dialogApp.directive('myTable', function() {
-        return function(scope, element, attrs) {
+app.controller("MainController", function($scope, $http) {
+	$scope.fournisseurs = null;
+	$scope.init = function() {
+		$scope.produits = null;
+		$http.get('produit/tousLesProduits').success(function(data) {
+			$scope.produits = data;
+		});
+	};
+	$http.get('fournisseur/tousLesFournisseurs').success(
+			function(data) {
+				$scope.fournisseurs = data;
+			});
 
-            // apply DataTable options, use defaults if none specified by user
-            var options = {};
-            if (attrs.myTable.length > 0) {
-                options = scope.$eval(attrs.myTable);
-            } else {
-                options = {
-                    "bStateSave": true,
-                    "iCookieDuration": 2419200, /* 1 month */
-                    "bJQueryUI": true,
-                    "bPaginate": false,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bInfo": false,
-                    "bDestroy": true
-                };
-            }
+});
 
-            // Tell the dataTables plugin what columns to use
-            // We can either derive them from the dom, or use setup from the controller           
-            var explicitColumns = [];
-            element.find('th').each(function(index, elem) {
-                explicitColumns.push($(elem).text());
-            });
-            if (explicitColumns.length > 0) {
-                options["aoColumns"] = explicitColumns;
-            } else if (attrs.aoColumns) {
-                options["aoColumns"] = scope.$eval(attrs.aoColumns);
-            }
+app
+		.controller(
+				"FournisseurController",
+				function($scope, $http) {
 
-            // aoColumnDefs is dataTables way of providing fine control over column config
-            if (attrs.aoColumnDefs) {
-                options["aoColumnDefs"] = scope.$eval(attrs.aoColumnDefs);
-            }
-            
-            if (attrs.fnRowCallback) {
-                options["fnRowCallback"] = scope.$eval(attrs.fnRowCallback);
-            }
+					var formFournisseurAdresse = {};
+					var formUpdatedFournisseurAdresse = {};
+					$scope.fournisseur;
+					$scope.getFournisseurs = function() {
+						$http.get('fournisseur/tousLesFournisseurs').success(
+								function(data) {
+									$scope.fournisseurs = data;
+								});
+					}
 
-            // apply the plugin
-            var dataTable = element.dataTable(options);
+					$scope.creerFournisseur = function(formFournisseur,
+							formAdresse) {
+						formFournisseurAdresse.fournisseur = formFournisseur;
+						formFournisseurAdresse.adresse = formAdresse;
 
-            
-            
-            // watch for any changes to our data, rebuild the DataTable
-            scope.$watch(attrs.aaData, function(value) {
-                var val = value || null;
-                if (val) {
-                    dataTable.fnClearTable();
-                    dataTable.fnAddData(scope.$eval(attrs.aaData));
-                }
-            });
-        };
-    });
+						var res = $http.post('fournisseur/creerFournisseur',
+								angular.toJson(formFournisseurAdresse));
+						res
+								.success(function(fournisseurAdresse) {
+									$scope.fournisseurAdresse = fournisseurAdresse;
+									$scope.alertMessage = "Success; Le fournisseur a été bien enregistré";
+									$("#confirmationFournisseurAlert").css(
+											"display", "block");
 
-function Ctrl($scope) {
+								});
+						res.error(function(data, status, headers, config) {
+							alert("error " + status);
+						});
+						setTimeout(function() {
+							window.location.reload();
 
-    $scope.message = '';            
-    
-        $scope.myCallback = function(nRow, aData, iDisplayIndex, iDisplayIndexFull) {            
-            $('td:eq(2)', nRow).bind('click', function() {
-                $scope.$apply(function() {
-                    $scope.someClickHandler(aData);
-                });
-            });
-            return nRow;
-        };
+						}, 2500);
+					};
 
-        $scope.someClickHandler = function(info) {
-            $scope.message = 'clicked: '+ info.price;
-        };
-    
-        $scope.columnDefs = [ 
-            { "mDataProp": "Date Achat", "aTargets":[0]},
-            { "mDataProp": "Description", "aTargets":[1] },
-            { "mDataProp": "Fabriquant", "aTargets":[2] },
-            { "mDataProp": "Serial Number", "aTargets":[3] }
-        ]; 
-        
-        $scope.overrideOptions = {
-            "bStateSave": true,
-            "iCookieDuration": 2419200, /* 1 month */
-            "bJQueryUI": true,
-            "bPaginate": true,
-            "bLengthChange": false,
-            "bFilter": true,
-            "bInfo": true,
-            "bDestroy": true
-        };
-    
-       
-        $scope.sampleProductCategories = [
+				});
 
-              {
-                "Date Achat": "1948 Porsche 356-A Roadster",
-                "Description": 53.9,
-                "Fabriquant": "Classic Cars",
-                "Serial Number": "Classic Cars",
-                "action":"x"
-              },
-              {
-                "Date Achat": "1948 Porsche Type 356 Roadster",
-                "Description": 62.16,
-	            "Fabriquant": "Classic Cars",
-	            "Serial Number": "Classic Cars",
-                "action":"x"
-              },
-              {
-                "Date Achat": "1949 Jaguar XK 120",
-                "Description": 47.25,
-                "Fabriquant": "Classic Cars",
-                "Serial Number": "Classic Cars",
-                "action":"x"
-              }
-              ,
-              {
-                "Date Achat": "1936 Harley Davidson El Knucklehead",
-                "Description": 24.23,
-	            "Fabriquant": "Motorcycles",
-	            "Serial Number": "Classic Cars",
-                "action":"x"
-              },
-              {
-                  "Date Achat": "hritini",
-                  "Description": 24.23,
-  	            "Fabriquant": "Motorcycles",
-  	            "Serial Number": "Classic Cars",
-                  "action":"x"
-                }
-          
-        ];            
-            
-}
+app.controller("ClientController", function($scope, $http) {
+	var formClientAdresse = {};
+	$scope.creerClient = function(formClient, formAdresse) {
+		formClientAdresse.client = formClient;
+		formClientAdresse.adresse = formAdresse;
+		alert("formClientAdresse : " + formClientAdresse);
+		var res = $http.post('client/creerClient', angular
+				.toJson(formClientAdresse));
+		res.success(function(clientAdresse) {
+			$scope.clientAdresse = clientAdresse;
+			$scope.alertMessage = "Success; Le client a été bien enregistré";
+			$("#confirmationClientAlert").css("display", "block");
+		});
+		res.error(function(data, status, headers, config) {
+			alert("error " + status);
+		});
+		setTimeout(function() {
+			document.location.reload(true);
+		}, 2500);
+	};
+
+});
+
+app.controller("ProduitController", function($scope, $http) {
+	// add produits rows
+	$scope.newProduits = [ {
+		serialNumber : null,
+		description : null,
+		qte : null,
+		prixUnit : null,
+		fournisseur : null,
+	} ];
+	
+	$scope.addNewProduitsRow = function() {
+		var produit = {
+			serialNumber : null,
+			description : null,
+			qte : null,
+			prixUnit : null,
+			fournisseur : null
+		};
+		$scope.newProduits.push(produit);
+	};
+	$scope.removeNewProduitRow = function(index) {
+		$scope.newProduits.splice(index, 1);
+	};
+	
+	$scope.ajouterProduits = function() {
+		alert("newProduits : " +$scope.newProduits ) ;
+		var res = $http.post('produit/ajouterProduit',
+				angular.toJson($scope.newProduits));
+		res
+				.success(function(produit) {
+					$scope.alertMessage = "Success; La liste des produits ont été bien enregistré";
+					alert("success " + produit);
+
+				});
+		res.error(function(data, status, headers, config) {
+			alert("error eee" + status);
+		});
+	};	
+	
+});

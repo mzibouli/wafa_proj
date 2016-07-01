@@ -1,1 +1,95 @@
-ajouter client form ici
+
+<form class="form-horizontal" >
+<br/>
+	<fieldset>
+		<div class="col-xs-6">
+			<div class="form-group">
+				<label class="control-label col-xs-2">Nom</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="nom" id="nom"
+						ng-model="formClient.nom" ng-class="{ error: !formClient.nom }"
+						 placeholder="nom"><span
+						ng-show="nomRequired">{{nomRequired}}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-2">Prenom</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="prenom"
+					ng-blur="isClientExist(formClient.nom,formClient.prenom )"
+						ng-model="formClient.prenom" id="prenom" placeholder="prenom">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-2">Email</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="email" id="email"
+						ng-model="formClient.email"
+						ng-class="{ error: !formClient.email }" placeholder="email"><span
+						ng-show="emailRequired">{{emailRequired}}</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-2">Tel</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control" name="tel" id="tel"
+						ng-model="formClient.tel" ng-class="{ error: !formClient.tel }"
+						placeholder="tel"><span ng-show="TelRequired">{{telRequired}}</span>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-xs-6">
+			<div class="form-group">
+				<label class="control-label col-xs-3">Numero Civil</label>
+				<div class="col-xs-6">
+					<input type="number" class="form-control" name="numeroCivil" min="1"
+						ng-model="formAdresse.numeroCivil" id="numeroCivil"
+						placeholder="numero Civil">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-3">Rue</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="rue" id="rue"
+						ng-model="formAdresse.rue" placeholder="rue">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="control-label col-md-3">Code Postal</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="codePostal"
+						maxlength="6" minlength="6" ng-model="formAdresse.codePostal"
+						id="codePostal" placeholder="code Postal">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="control-label col-xs-3">Ville</label>
+				<div class="col-xs-6">
+					<input type="text" class="form-control" name="ville" id="ville"
+						ng-model="formAdresse.ville" placeholder="ville">
+				</div>
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			<div class="col-lg-offset-5 col-lg-12">
+				<button ng-disabled="!formClient.nom" type="submit" id="enregistrerCleintBtn"
+					class="btn btn-primary"
+					ng-click="creerClient(formClient, formAdresse)">Enregistrer</button>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="col-lg-offset-5 col-lg-3 alert alert-danger" id="clientExistError" 
+				style="display: none">{{clientExistError}}</label>
+		</div>
+	</fieldset>
+</form>
+<div id="confirmationClientAlert" class="alert alert-success" 
+	style="display: none">
+	<strong>{{alertMessage}}</strong>
+</div>

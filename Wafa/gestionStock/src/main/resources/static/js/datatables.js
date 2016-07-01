@@ -19,7 +19,7 @@ function format ( d ) {
  
 $(document).ready(function() {
     var table = $('#example').DataTable( {
-        "ajax": "../ajax/data/objects.txt",
+        "ajax": "produit/tousLesProduits",
         "columns": [
             {
                 "className":      'details-control',
@@ -27,10 +27,10 @@ $(document).ready(function() {
                 "data":           null,
                 "defaultContent": ''
             },
-            { "data": "name" },
-            { "data": "position" },
-            { "data": "office" },
-            { "data": "salary" }
+            { "data": "Date Achat" },
+            { "data": "Description" },
+            { "data": "Fabriquant" },
+            { "data": "Serial Number" }
         ],
         "order": [[1, 'asc']]
     } );

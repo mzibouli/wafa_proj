@@ -1,4 +1,55 @@
-ajouter produit form ici
+<br />
+<br />
+<form class="form-horizontal">
+	<table class="table table-striped" id="tblproduits">
+		<thead>
+			<tr>
+				<th></th>
+				<th class="text-center">Serial number</th>
+				<th class="text-center">Description</th>
+				<th class="text-center">Qte</th>
+				<th class="text-center">prix Unit</th>
+				<th class="text-center">Fournisseur</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<fieldset>
+				<tr ng-repeat="produit in newProduits">
+					<td><input type="button" value="+"
+						class="btn btn-primary btn-md" ng-click="addNewProduitsRow()"></td>
+					<td><input type="text" class="form-control"
+						ng-model="produit.serialNumber" /></td>
+					<td><input type="text" class="form-control"
+						ng-model="produit.description" /></td>
+					<td><input type="number" min="1" class="form-control"
+						ng-model="produit.qte" /></td>
+					<td><input type="number" min="1" class="form-control"
+						ng-model="produit.prixUnit" /></td>
+					<td><select ng-model="produit.fournisseur"
+						id="strSelectedFourn">
+							<option ng-repeat="fournisseur in fournisseurs">{{fournisseur.nomEntreprise}}</option>
+					</select></td>
 
 
-asdfadsf ha
+					<td><input type="button" value="-"
+						class="btn btn-primary btn-md" ng-click="removeNewProduitRow($index)" /></td>
+				</tr>
+
+			</fieldset>
+
+
+		</tbody>
+	</table>
+
+	<div class="form-group">
+		<div class="col-lg-offset-5 col-lg-12">
+			<button type="submit" class="btn btn-primary"
+				ng-click="ajouterProduits()">Enregistrer</button>
+
+		</div>
+	</div>
+</form>
+<br />
+<br />
+
