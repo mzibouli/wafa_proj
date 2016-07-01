@@ -109,14 +109,8 @@ app
 
 					$scope.ajouterProduits = function() {
 						alert("newProduits : " + $scope.newProduits);
-						var obj = {
-							"serialNumber" : "prd001ee",
-							"description" : "fahdee",
-							"fabriquant" : "Zibouliee",
-							"dateAchat" : "2016-01-03"
-						};
 						var res = $http.post('produit/ajouterProduit', angular
-								.toJson(obj));
+								.toJson($scope.newProduits));
 						res
 								.success(function(produit) {
 									$scope.alertMessage = "Success; La liste des produits ont été bien enregistré";
