@@ -21,10 +21,10 @@ public class ProduitController {
 	
 	@RequestMapping(value = "/ajouterProduit", method = RequestMethod.POST)
 	@ResponseBody
-	public Produit ajouterProduit(@RequestBody String jsonProduit) {
+	public Produit ajouterProduit(@RequestBody Produit jsonProduit) {
 		Produit prd = new Produit();
 		prd.setDescription("test");
-		return produitRepositoryServiceImpl.save(prd);
+		return produitRepositoryServiceImpl.save(jsonProduit);
 	}
 	
 	

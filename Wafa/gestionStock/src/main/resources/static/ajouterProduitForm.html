@@ -7,8 +7,9 @@
 				<th></th>
 				<th class="text-center">Serial number</th>
 				<th class="text-center">Description</th>
+				<th class="text-center">Date Achat</th>
 				<th class="text-center">Qte</th>
-				<th class="text-center">prix Unit</th>
+				<th class="text-center">Fabriquant</th>
 				<th class="text-center">Fournisseur</th>
 			</tr>
 		</thead>
@@ -22,10 +23,12 @@
 						ng-model="produit.serialNumber" /></td>
 					<td><input type="text" class="form-control"
 						ng-model="produit.description" /></td>
+					<td><input type="date" class="form-control"
+						ng-model="produit.dateAchat" /></td>
 					<td><input type="number" min="1" class="form-control"
 						ng-model="produit.qte" /></td>
-					<td><input type="number" min="1" class="form-control"
-						ng-model="produit.prixUnit" /></td>
+					<td><input type="text"  class="form-control"
+						ng-model="produit.fabriquant" /></td>
 					<td><select ng-model="produit.fournisseur"
 						id="strSelectedFourn">
 							<option ng-repeat="fournisseur in fournisseurs">{{fournisseur.nomEntreprise}}</option>

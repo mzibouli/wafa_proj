@@ -8,10 +8,9 @@ app.controller("MainController", function($scope, $http) {
 			$scope.produits = data;
 		});
 	};
-	$http.get('fournisseur/tousLesFournisseurs').success(
-			function(data) {
-				$scope.fournisseurs = data;
-			});
+	$http.get('fournisseur/tousLesFournisseurs').success(function(data) {
+		$scope.fournisseurs = data;
+	});
 
 });
 
@@ -79,43 +78,54 @@ app.controller("ClientController", function($scope, $http) {
 
 });
 
-app.controller("ProduitController", function($scope, $http) {
-	// add produits rows
-	$scope.newProduits = [ {
-		serialNumber : null,
-		description : null,
-		qte : null,
-		prixUnit : null,
-		fournisseur : null,
-	} ];
-	
-	$scope.addNewProduitsRow = function() {
-		var produit = {
-			serialNumber : null,
-			description : null,
-			qte : null,
-			prixUnit : null,
-			fournisseur : null
-		};
-		$scope.newProduits.push(produit);
-	};
-	$scope.removeNewProduitRow = function(index) {
-		$scope.newProduits.splice(index, 1);
-	};
-	
-	$scope.ajouterProduits = function() {
-		alert("newProduits : " +$scope.newProduits ) ;
-		var res = $http.post('produit/ajouterProduit',
-				angular.toJson($scope.newProduits));
-		res
-				.success(function(produit) {
-					$scope.alertMessage = "Success; La liste des produits ont été bien enregistré";
-					alert("success " + produit);
+app
+		.controller(
+				"ProduitController",
+				function($scope, $http) {
+					// add produits rows
+					$scope.newProduits = [ {
+						serialNumber : null,
+						description : null,
+						dateAchat : null,
+						qte : null,
+						fabriquant : null,
+						fournisseur : null,
+					} ];
+
+					$scope.addNewProduitsRow = function() {
+						var produit = {
+							serialNumber : null,
+							description : null,
+							dateAchat : null,
+							qte : null,
+							fabriquant : null,
+							fournisseur : null,
+						};
+						$scope.newProduits.push(produit);
+					};
+					$scope.removeNewProduitRow = function(index) {
+						$scope.newProduits.splice(index, 1);
+					};
+
+					$scope.ajouterProduits = function() {
+						alert("newProduits : " + $scope.newProduits);
+						var obj = {
+							"serialNumber" : "prd001ee",
+							"description" : "fahdee",
+							"fabriquant" : "Zibouliee",
+							"dateAchat" : "2016-01-03"
+						};
+						var res = $http.post('produit/ajouterProduit', angular
+								.toJson(obj));
+						res
+								.success(function(produit) {
+									$scope.alertMessage = "Success; La liste des produits ont été bien enregistré";
+									alert("success " + produit);
+
+								});
+						res.error(function(data, status, headers, config) {
+							alert("error eee" + status);
+						});
+					};
 
 				});
-		res.error(function(data, status, headers, config) {
-			alert("error eee" + status);
-		});
-	};	
-	
-});
