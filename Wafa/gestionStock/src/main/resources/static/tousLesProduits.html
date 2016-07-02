@@ -37,22 +37,14 @@
 			<th>Fabriquant</th>
 		</tr>
 	</thead>
+	<tbody>
+
+				<tr ng-repeat="produit in produits">
+					<td>{{produit.serialNumber}}</td>
+					<td>{{produit.description}}</td>
+					<td>{{produit.dateAchat}}</td>
+					<td>{{produit.fabriquant}}</td>
+				</tr>
+			</tbody>
 </table>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		var data = {{produits}};
-		var table = $('#example').DataTable({
-			"aaData" : data,
-			"aoColumns" : [ {
-				"mData" : "Serial Number"
-			}, {
-				"mData" : "Description"
-			}, {
-				"mData" : "Date Achat"
-			}, {
-				"mData" : "Fabriquant"
-			} ]
-		});
-	});
-</script>
