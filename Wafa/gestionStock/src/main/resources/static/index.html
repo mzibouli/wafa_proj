@@ -3,44 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!--  Styles -->
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/redmond/jquery-ui.css" rel="stylesheet" />
- 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="angular/angular.min.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
+
+<!-- Script  --> 
+
+	<!-- libraries  -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/shared/angular.min.js"></script>
+<script	src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
-<script type="text/javascript" src="//cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
 
-<style>
+	<!--  Controllers -->
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/ProduitController.js"></script>
 
-.ng-invalid { border: 1px solid red; } 
-body { font-family: Arial,Helvetica,sans-serif; }
-body, td, th { font-size: 14px; margin: 0; }
-table { border-collapse: separate; border-spacing: 2px; display: table; margin-bottom: 0; margin-top: 0; -moz-box-sizing: border-box; text-indent: 0; }
-a:link, a:visited, a:hover { color: #5D6DB6; text-decoration: none; }
-.error { color: red; }
-.ui-helper-hidden { display: none;}
-</style>
+	<!--  directives -->
+<script type="text/javascript" src="js/directives/HeadDirective.js"></script>
+<script type="text/javascript" src="js/directives/tabsDirective.js"></script>
+
+	<!-- Routes -->
+	<script type="text/javascript" src="js/routes/productRoute.js"></script>
+
 </head>
 
 <body>
 	<div>
 		<!--  Menu -->
-		<div id="divEntete" ng-include="'entete.html'"></div>
+		<head-directive></head-directive>
 		<!-- Fin menu -->
 	</div>
 	<!--  Contenu -->
 	<div class="container">
 		<!--  tabs -->
-		<div id="divTabs"  ng-include="'tabs.html'"></div>
+		<tabs-directive></tabs-directive>
 		<!-- Fin tabs -->
 
 	</div>
