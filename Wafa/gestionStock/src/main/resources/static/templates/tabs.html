@@ -1,29 +1,38 @@
 <div id="indexTabs" class="tab-content" ng-controller="MainController" data-ng-init="init()">
 	<!-- Espace Produit -->
-	<div id="tousLesProduits" 
-		 class="tab-pane fade in active">
+	
+		<div id="" class="tab-pane fade in active">
+		<h2 align="center">
+			<strong>Gestion de stock</strong>
+		</h2>
+		<hr>
+		<div ng-include="'templates/home.html'"></div>
+	</div>
+	
+	<div id="tousLesProduits" class="tab-pane fade">
 		<h2 align="center">
 			<strong>Tous les Produits </strong>
 		</h2>
 		<hr>
-		<div ng-include="'tousLesProduits.html'"></div>
+		
+		<ng-view></ng-view>
+			
+		<!-- <div ng-include="'tousLesProduits.html'"></div> -->
 	</div>
-	<div id="ajouterProduit" ng-controller="ProduitController"
-		class="tab-pane fade">
+	<div id="ajouterProduit" ng-controller="ProduitController" class="tab-pane fade">
 		<h2 align="center">
 			<strong>Ajouter nouveaux Produits</strong>
 		</h2>
 		<hr>
-		<div ng-include="'ajouterProduitForm.html'"></div>
-	</div>
+		<ng-view></ng-view>
 
-	<div  id="trouverProduit"
-		class="tab-pane fade">
+	<div  id="trouverProduit" class="tab-pane fade">
 		<h2 align="center">
 			<strong>Trouver Produit </strong>
 		</h2>
 		<hr>
-		<div ng-include="'trouverProduit.html'"></div>
+		<ng-view></ng-view>
+
 	</div>
 
 	<!-- Espace Clients -->
