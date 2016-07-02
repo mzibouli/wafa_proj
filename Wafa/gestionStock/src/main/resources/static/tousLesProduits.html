@@ -1,4 +1,4 @@
-
+<!-- 
 <div>
 	<div >
 		<table>
@@ -22,4 +22,37 @@
 			</tbody>
 		</table>
 	</div>
-</div>
+</div> -->
+
+
+
+
+<table id="example" class="display" cellspacing="0" width="100%"
+	style="overflow-x: auto">
+	<thead>
+		<tr>
+			<th>Serial Number</th>
+			<th>Description</th>
+			<th>Date Achat</th>
+			<th>Fabriquant</th>
+		</tr>
+	</thead>
+</table>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var data = {{produits}};
+		var table = $('#example').DataTable({
+			"aaData" : data,
+			"aoColumns" : [ {
+				"mData" : "Serial Number"
+			}, {
+				"mData" : "Description"
+			}, {
+				"mData" : "Date Achat"
+			}, {
+				"mData" : "Fabriquant"
+			} ]
+		});
+	});
+</script>
