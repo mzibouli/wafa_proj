@@ -14,7 +14,7 @@ angular.module('gestionStock').config(function($routeProvider) {
 		templateUrl : 'templates/produit/trouverProduit.html',	
 	})
 	.when('/', {
-		templateUrl : 'index.html',	
+		templateUrl : 'home.html',	
 	})
 	.otherwise({ redirectTo: '/'});
 });

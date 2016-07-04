@@ -31,8 +31,13 @@ app.controller("ProduitController", function($scope, $http) {
 						res
 								.success(function(produit) {
 									$scope.alertMessage = "Success; La liste des produits ont été bien enregistré";
-									alert("success " + produit);
-
+									alert("xd" + $scope.produits);
+									$scope.produits.push(angular
+											.toJson($scope.newProduits));
+									$scope.produits.push(
+										    {id: "67", name: "Douglas Adams", type: "comedy"}
+										);
+									alert("success :" + produit);
 								});
 						res.error(function(data, status, headers, config) {
 							alert("error eee" + status);
