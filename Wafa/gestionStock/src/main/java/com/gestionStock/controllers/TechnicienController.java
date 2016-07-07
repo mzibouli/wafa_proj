@@ -12,10 +12,10 @@ import com.gestionStock.repositoryServiceImpl.TechnicienRepositoryServiceImpl;
 @RequestMapping("/technicien")
 public class TechnicienController {
 	
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "/allTechniciens", method = RequestMethod.GET)
 public Iterable<Technicien> getAllTechniciens(){
 	
-	return technicienRepositoryServiceImpl.findAll();
+	return technicienRepositoryServiceImpl.getAllTechniciens();
 	
 }
 	

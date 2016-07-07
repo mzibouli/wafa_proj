@@ -5,6 +5,6 @@
 app.directive('tabsDirective', function(){
 	return {
 		restrict : 'E',
-		templateUrl : 'templates/tabs.html'
+		templateUrl : 'templates/shared/tabs.html'
 	};
 });

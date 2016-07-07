@@ -1,0 +1,22 @@
+
+<table class="table table-striped id=" example" class="display"
+	cellspacing="0" width="100%" style="overflow-x: auto">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>Numero de telephone</th>
+			<th>Adresse</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr ng-repeat="technicien in allTechniciens">
+			<td>{{technicien.nom}}</td>
+			<td>{{technicien.prenom}}</td>
+			<td>{{technicien.tel}}</td>
+			<td>{{technicien.adresse.numeroCivil + " " + technicien.adresse.rue + "
+				" + technicien.adresse.codePostal + " " + technicien.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>

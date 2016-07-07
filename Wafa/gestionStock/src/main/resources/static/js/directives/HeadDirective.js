@@ -5,6 +5,6 @@
 app.directive('headDirective', function(){
 	return {
 		restrict : 'E',
-		templateUrl : 'templates/entete.html'
+		templateUrl : 'templates/shared/entete.html'
 	};
 });
