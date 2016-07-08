@@ -9,7 +9,7 @@ app.controller('TechnicienController', ['$scope', 'allTechniciensService',
 app.controller("addTechnicienController", function($scope, $http) {
 	var formTechnicienAdresse = {};
 	$scope.creerTechnicien = function(formTechnicien, formAdresse) {
-		formTechnicienAdresse.client = formTechnicien;
+		formTechnicienAdresse.technicien = formTechnicien;
 		formTechnicienAdresse.adresse = formAdresse;
 		alert("formTechnicientAdresse : " + formTechnicienAdresse);
 		var res = $http.post('technicien/addTechniciens', angular

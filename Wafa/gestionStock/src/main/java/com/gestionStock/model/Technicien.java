@@ -20,8 +20,8 @@ public class Technicien {
 	@Column(name = "id", unique = true, nullable = false, length = 45)
 	private Integer id;
 	
-	@Column(name = "idTechnicien", unique = true, nullable = false, length = 45)
-	private String idTechnicien;
+/*	@Column(name = "idTechnicien", unique = true, nullable = true, length = 45)
+	private String idTechnicien;*/
 	
 	@Column(name = "nom", nullable = false, length = 60)
 	private String nom;
@@ -43,13 +43,13 @@ public class Technicien {
 		this.id = id;
 	}
 
-	public String getIdTechnicien() {
+/*	public String getIdTechnicien() {
 		return idTechnicien;
 	}
 
 	public void setIdTechnicien(String idTechnicien) {
 		this.idTechnicien = idTechnicien;
-	}
+	}*/
 
 	public String getNom() {
 		return nom;
@@ -83,10 +83,10 @@ public class Technicien {
 		this.adresse = adresse;
 	}
 	
-	public Technicien(Integer id, String idTechnicien, String nom, String prenom, String tel) {
+	public Technicien(Integer id, String nom, String prenom, String tel) {
 		super();
 		this.id = id;
-		this.idTechnicien = idTechnicien;
+		//this.idTechnicien = idTechnicien;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.tel = tel;
