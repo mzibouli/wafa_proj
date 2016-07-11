@@ -23,7 +23,7 @@
 	</thead>
 	<tbody>
 
-		<tr ng-repeat="produit in produits | filter:searchBox">
+		<tr ng-repeat="produit in allProduits | filter:searchBox">
 			<td>{{produit.serialNumber}}</td>
 			<td>{{produit.description}}</td>
 			<td>{{produit.dateAchat}}</td>

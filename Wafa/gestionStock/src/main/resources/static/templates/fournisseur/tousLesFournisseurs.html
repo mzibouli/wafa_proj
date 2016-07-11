@@ -1,0 +1,22 @@
+
+<table class="table table-striped id=" example" class="display"
+	cellspacing="0" width="100%" style="overflow-x: auto">
+	<thead>
+		<tr>
+			<th>Nom Entreprise</th>
+			<th>Email</th>
+			<th>Numero de telephone</th>
+			<th>Adresse</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr ng-repeat="fournisseur in fournisseurs">
+			<td>{{fournisseur.nomEntreprise}}</td>
+			<td>{{fournisseur.email}}</td>
+			<td>{{fournisseur.tel}}</td>
+			<td>{{fournisseur.adresse.numeroCivil + " " + fournisseur.adresse.rue + "
+				" + fournisseur.adresse.codePostal + " " + fournisseur.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>

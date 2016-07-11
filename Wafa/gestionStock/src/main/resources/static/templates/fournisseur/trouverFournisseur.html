@@ -1,0 +1,34 @@
+
+<div class="form-group">
+	<label class="control-label col-xs-2">Chercher</label>
+	<div class="col-xs-6">
+		<input type="text" class="form-control" name="chercher"
+			ng-model="searchBox" id="chercher" placeholder="Chercher">
+	</div>
+</div>
+
+<br>
+<br>
+
+<table class="table table-striped id=" example" class="display"
+	cellspacing="0" width="100%" style="overflow-x: auto">
+	<thead>
+		<tr>
+			<th>Nom Entreprise</th>
+			<th>Email</th>
+			<th>Numero de telephone</th>
+			<th>Adresse</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr ng-repeat="fournisseur in fournisseurs | filter:searchBox">
+			<td>{{fournisseur.nomEntreprise}}</td>
+			<td>{{fournisseur.email}}</td>
+			<td>{{fournisseur.tel}}</td>
+			<td>{{fournisseur.adresse.numeroCivil + " " + fournisseur.adresse.rue + "
+				" + fournisseur.adresse.codePostal + " " + fournisseur.adresse.ville}}</td>
+
+		</tr>
+	</tbody>
+</table>

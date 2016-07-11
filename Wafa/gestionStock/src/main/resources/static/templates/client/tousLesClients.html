@@ -1,0 +1,25 @@
+
+<table class="table table-striped id=" example" class="display"
+	cellspacing="0" width="100%" style="overflow-x: auto">
+	<thead>
+		<tr>
+			<th>Nom</th>
+			<th>Prenom</th>
+			<th>E-mail</th>
+			<th>Telephone</th>
+			<th>Adresse</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<tr ng-repeat="client in allClients">
+			<td>{{client.nom}}</td>
+			<td>{{client.prenom}}</td>
+			<td>{{client.email}}</td>
+			<td>{{client.tel}}</td>
+			<td>{{client.adresse.numeroCivil + " " + client.adresse.rue + "
+				" + client.adresse.codePostal + " " + client.adresse.ville}}</td>
+		</tr>
+	</tbody>
+</table>
+

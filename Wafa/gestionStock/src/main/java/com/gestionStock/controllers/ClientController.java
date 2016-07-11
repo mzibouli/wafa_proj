@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gestionStock.model.Adresse;
 import com.gestionStock.model.Client;
+import com.gestionStock.model.Produit;
 import com.gestionStock.repository.AdresseRepository;
 import com.gestionStock.repositoryServiceImpl.ClientRepositoryServiceImpl;
 import com.gestionStock.util.ClientAdresse;
@@ -25,7 +26,7 @@ import com.gestionStock.util.ClientAdresse;
 @RequestMapping("/client")
 public class ClientController {
 
-	@RequestMapping(value = "/tousLesClient", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/tousLesClients", method = { RequestMethod.GET })
 	@ResponseBody
 	public Iterable<Client> tousLesClient() {
 		return clientRepositoryServiceImpl.findAll();
@@ -45,10 +46,10 @@ public class ClientController {
 			client.setPrenom(client.getPrenom().toUpperCase());
 			adresse = clientAdresse.getAdresse();
 			client.setAdresse(adresse);
-			if(adresse != null){
+			if (adresse != null) {
 				adresseRepository.save(adresse);
 			}
-			
+
 			clientRepositoryServiceImpl.save(client);
 		} catch (JsonGenerationException e) {
 
@@ -65,8 +66,6 @@ public class ClientController {
 		}
 		return clientAdresse;
 	}
-
-	
 
 	@Autowired
 	ClientRepositoryServiceImpl clientRepositoryServiceImpl;
