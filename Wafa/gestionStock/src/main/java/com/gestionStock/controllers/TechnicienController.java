@@ -21,13 +21,13 @@ import com.gestionStock.util.TechnicienAdresse;
 @RestController
 @RequestMapping("/technicien")
 public class TechnicienController {
-	
+
 	@RequestMapping(value = "/allTechniciens", method = RequestMethod.GET)
-public Iterable<Technicien> getAllTechniciens(){
-	
-	return technicienRepositoryServiceImpl.getAllTechniciens();
-	
-}
+	public Iterable<Technicien> getAllTechniciens() {
+
+		return technicienRepositoryServiceImpl.getAllTechniciens();
+
+	}
 
 	@RequestMapping(value = "/addTechniciens", method = { RequestMethod.GET, RequestMethod.POST })
 	@ResponseBody
@@ -43,10 +43,10 @@ public Iterable<Technicien> getAllTechniciens(){
 			technicien.setPrenom(technicien.getPrenom().toUpperCase());
 			adresse = technicienAdresse.getAdresse();
 			technicien.setAdresse(adresse);
-			if(adresse != null){
+			if (adresse != null) {
 				adresseRepository.save(adresse);
 			}
-			
+
 			technicienRepositoryServiceImpl.addTechniciens(technicien);
 		} catch (JsonGenerationException e) {
 
@@ -63,10 +63,9 @@ public Iterable<Technicien> getAllTechniciens(){
 		}
 		return technicienAdresse;
 	}
-	
+
 	@Autowired
 	TechnicienRepositoryServiceImpl technicienRepositoryServiceImpl;
 	@Autowired
 	AdresseRepository adresseRepository;
 }
-
