@@ -7,7 +7,8 @@
 			<strong>Gestion de stock</strong>
 		</h2>
 		<hr>
-		<div ng-include="'templates/home.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/home.html'"></div> -->
 	</div>
 
 	<div id="tousLesProduits" class="tab-pane fade">
@@ -16,7 +17,8 @@
 		</h2>
 		<hr>
 
-		<div ng-include="'templates/produit/tousLesProduits.html'"></div>
+	<div ng-view></div>
+		<!-- <div ng-include="'templates/produit/tousLesProduits.html'"></div> -->
 	</div>
 	<div id="ajouterProduit" ng-controller="ProduitController"
 		class="tab-pane fade">
@@ -24,58 +26,72 @@
 			<strong>Ajouter nouveaux Produits</strong>
 		</h2>
 		<hr>
-
-		<div ng-include="'templates/produit/ajouterProduitForm.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/produit/ajouterProduitForm.html'"></div> -->
 	</div>
 	<div id="trouverProduit" class="tab-pane fade" >
 		<h2 align="center">
 			<strong>Trouver Produit </strong>
 		</h2>
 		<hr>
-
-		<div ng-include="'templates/produit/trouverProduit.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/produit/trouverProduit.html'"></div> -->
 
 	</div>
 
 	<!-- Espace Clients -->
-	<div id="TousLesClients" class="tab-pane fade">
+	<div id="tousLesClients" class="tab-pane fade" ng-controller="ClientController">
 		<h2 align="center">
 			<strong>Tous les clients</strong>
 		</h2>
 		<hr>
-		<div ng-include="'tousLesClients.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/client/tousLesClients.html'"></div> -->
 	</div>
-	<div id="ajouterClient" ng-controller="ClientController"
+	<div id="ajouterClient" ng-controller="addClientController"
 		class="tab-pane fade">
 		<h2 align="center">
 			<strong>Ajouter un nouveau Client</strong>
 		</h2>
 		<hr>
-		<div ng-include="'ajouterClientForm.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/client/ajouterClientForm.html'"></div> -->
 	</div>
-	<div id="trouverClient" class="tab-pane fade">
+	<div id="trouverClient" class="tab-pane fade" ng-controller="ClientController">
 		<h2 align="center">
 			<strong>Trouver Client</strong>
 		</h2>
 		<hr>
-		<div ng-include="'trouverClient.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/client/trouverClient.html'"></div> -->
 	</div>
 	<!-- Espace Fournisseurs -->
-	<div id="ajouterFournisseur" ng-controller="FournisseurController"
+	<div id="tousLesFournisseurs" class="tab-pane fade" ng-controller="FournisseurController">
+		<h2 align="center">
+			<strong>Tous les clients</strong>
+		</h2>
+		<hr>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/fournisseur/tousLesFournisseurs.html'"></div> -->
+	</div>
+	
+	<div id="ajouterFournisseur" ng-controller="addFournisseurController"
 		class="tab-pane fade">
 		<h2 align="center">
 			<strong>Ajouter un nouveau Fournisseur</strong>
 		</h2>
 		<hr>
-		<div ng-include="'ajouterFournisseurForm.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/fournisseur/ajouterFournisseurForm.html'"></div> -->
 	</div>
 
-	<div id="trouverFournisseur" class="tab-pane fade">
+	<div id="trouverFournisseur" class="tab-pane fade" ng-controller="FournisseurController">
 		<h2 align="center">
 			<strong>Trouver Fournisseur</strong>
 		</h2>
 		<hr>
-		<div ng-include="'trouverFournisseur.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/fournisseur/trouverFournisseur.html'"></div> -->
 	</div>
 
 	<!-- Espace Technciens -->
@@ -84,7 +100,8 @@
 			<strong>Tous les Techniciens</strong>
 		</h2>
 		<hr>
-		<div ng-include="'templates/technicien/allTechniciens.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/technicien/allTechniciens.html'"></div> -->
 	</div>
 	<div id="addTechniciens" 
 		class="tab-pane fade" ng-controller="addTechnicienController">
@@ -92,14 +109,16 @@
 			<strong>Ajouter des Techniciens</strong>
 		</h2>
 		<hr>
-		<div ng-include="'templates/technicien/addTechniciens.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/technicien/addTechniciens.html'"></div> -->
 	</div>
 	<div id="findTechniciens" class="tab-pane fade" ng-controller="TechnicienController">
 		<h2 align="center">
 			<strong>Trouver Techniciens</strong>
 		</h2>
 		<hr>
-		<div ng-include="'templates/technicien/findTechniciens.html'"></div>
+		<div ng-view></div>
+		<!-- <div ng-include="'templates/technicien/findTechniciens.html'"></div> -->
 	</div>
 
 </div>
