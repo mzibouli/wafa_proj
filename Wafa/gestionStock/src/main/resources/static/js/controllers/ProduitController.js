@@ -1,4 +1,13 @@
-app.controller("ProduitController", function($scope, $http) {
+
+app.controller('ProduitController', ['$scope', 'allProduitsService',
+						function($scope, allProduitsService) {
+							allProduitsService.success(function(data) {
+								$scope.allProduits = data;
+							});
+						}
+]);
+
+app.controller("addProduitController", function($scope, $http) {
 					// add produits rows
 					$scope.newProduits = [ {
 						serialNumber : null,

@@ -1,4 +1,4 @@
-<div id="indexTabs" class="tab-content" ng-controller="MainController"
+<div id="indexTabs" class="tab-content" 
 	data-ng-init="init()">
 	<!-- Espace Produit -->
 
@@ -8,35 +8,30 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/home.html'"></div> -->
 	</div>
 
-	<div id="tousLesProduits" class="tab-pane fade">
+	<div id="tousLesProduits" class="tab-pane fade" ng-controller="ProduitController">
 		<h2 align="center">
 			<strong>Tous les Produits </strong>
 		</h2>
 		<hr>
 
 	<div ng-view></div>
-		<!-- <div ng-include="'templates/produit/tousLesProduits.html'"></div> -->
 	</div>
-	<div id="ajouterProduit" ng-controller="ProduitController"
+	<div id="ajouterProduit" ng-controller="addProduitController"
 		class="tab-pane fade">
 		<h2 align="center">
 			<strong>Ajouter nouveaux Produits</strong>
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/produit/ajouterProduitForm.html'"></div> -->
 	</div>
-	<div id="trouverProduit" class="tab-pane fade" >
+	<div id="trouverProduit" class="tab-pane fade" ng-controller="ProduitController">
 		<h2 align="center">
 			<strong>Trouver Produit </strong>
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/produit/trouverProduit.html'"></div> -->
-
 	</div>
 
 	<!-- Espace Clients -->
@@ -46,7 +41,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/client/tousLesClients.html'"></div> -->
 	</div>
 	<div id="ajouterClient" ng-controller="addClientController"
 		class="tab-pane fade">
@@ -55,7 +49,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/client/ajouterClientForm.html'"></div> -->
 	</div>
 	<div id="trouverClient" class="tab-pane fade" ng-controller="ClientController">
 		<h2 align="center">
@@ -63,7 +56,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/client/trouverClient.html'"></div> -->
 	</div>
 	<!-- Espace Fournisseurs -->
 	<div id="tousLesFournisseurs" class="tab-pane fade" ng-controller="FournisseurController">
@@ -72,7 +64,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/fournisseur/tousLesFournisseurs.html'"></div> -->
 	</div>
 	
 	<div id="ajouterFournisseur" ng-controller="addFournisseurController"
@@ -82,7 +73,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/fournisseur/ajouterFournisseurForm.html'"></div> -->
 	</div>
 
 	<div id="trouverFournisseur" class="tab-pane fade" ng-controller="FournisseurController">
@@ -91,7 +81,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/fournisseur/trouverFournisseur.html'"></div> -->
 	</div>
 
 	<!-- Espace Technciens -->
@@ -101,7 +90,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/technicien/allTechniciens.html'"></div> -->
 	</div>
 	<div id="addTechniciens" 
 		class="tab-pane fade" ng-controller="addTechnicienController">
@@ -110,7 +98,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/technicien/addTechniciens.html'"></div> -->
 	</div>
 	<div id="findTechniciens" class="tab-pane fade" ng-controller="TechnicienController">
 		<h2 align="center">
@@ -118,7 +105,6 @@
 		</h2>
 		<hr>
 		<div ng-view></div>
-		<!-- <div ng-include="'templates/technicien/findTechniciens.html'"></div> -->
 	</div>
 
 </div>
